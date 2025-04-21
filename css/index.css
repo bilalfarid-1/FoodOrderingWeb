@@ -1,8 +1,60 @@
 html{
-
+    font-size: 16px;
+    color: rgb(255, 250, 237);
 }
 body{
     margin: 0;
     padding: 0;
-    box-sizing: border-box
+    box-sizing: border-box;
+    background-color: rgb(112, 44, 99);
+    
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+.left{
+    display: flex;
+    margin-top: .9rem;
+    margin-left: 1.5rem;
+}
+.logo{
+    width: 6rem;
+    height: 9rem;
+    margin-top: -2.7rem;
+}
+.delivery-info{
+    line-height: 0.4rem;
+}
+.delivery-type{
+
+}
+.delivery-addr{
+
+}
+.right{
+    display: flex;
+    margin-top: 1.8rem;
+    margin-right: 1.5rem;
+}
+#search-form{
+
+}
+#search{
+
+}
+.btn-search{
+
+}
+.btn-cart{
+    border: 0;
+    padding: 0;
+    height: 2rem;
+    width: 2rem;
+}
+.btn-status{
+    border: 0;
+    padding: 0;
+    height: 2rem;
+    width: 4rem;
 }
