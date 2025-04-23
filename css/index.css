@@ -34,6 +34,7 @@ nav{
 }
 .right{
     display: flex;
+    align-items: baseline;
     margin-top: 1.8rem;
     margin-right: 1.5rem;
 }
@@ -47,16 +48,16 @@ nav{
 
 }
 .btn-cart{
-    border: 0;
-    padding: 0;
-    height: 2rem;
-    width: 2rem;
+   width: 2rem;
 }
 .btn-status{
+    width: 4rem;
+}
+.btn-cart,.btn-status{
+    background: none;
     border: 0;
     padding: 0;
     height: 2rem;
-    width: 4rem;
 }
 
 /* main section */
@@ -87,6 +88,7 @@ nav{
 }
 .item{
     display: grid;
+    align-items: center;
     grid-template-columns: 1fr 3fr; 
     gap: 1.5rem;
 }
@@ -102,6 +104,7 @@ nav{
 .item-image{
     width: 7rem;
     height: 7rem;
+    margin-left: .5rem;
 }
 .item-desc{
 
