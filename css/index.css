@@ -12,6 +12,10 @@ body{
 nav{
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    z-index: 10;
+    height: 7.2rem;
+    /* position: fixed; */
 }
 .left{
     display: flex;
@@ -65,12 +69,17 @@ nav{
 #main{
     display: grid;
     grid-template-columns: 1fr 3fr;
+    /* margin-top: 60px; */
 }
 .food-category{
-
+    
 }
 #categories{
 
+}
+#categories a{
+    text-decoration: none;
+    color: white;
 }
 .category{
     list-style: none;
@@ -85,6 +94,7 @@ nav{
     grid-template-rows: repeat(2,1fr);
     gap: .5rem;
     margin-right: 5rem;
+    
 }
 .item{
     display: grid;
