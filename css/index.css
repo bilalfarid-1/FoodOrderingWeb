@@ -62,7 +62,8 @@ nav{
 /* main section */
 /* category section */
 #main{
-
+    display: grid;
+    grid-template-columns: 1fr 3fr;
 }
 .food-category{
 
@@ -71,16 +72,23 @@ nav{
 
 }
 .category{
-
+    list-style: none;
+    margin-bottom: 2rem;
 }
 
 /* food section */
 
-.item .one{
-
+.section{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    gap: .5rem;
+    margin-right: 5rem;
 }
 .item{
-
+    display: grid;
+    grid-template-columns: 1fr 3fr; 
+    gap: 1.5rem;
 }
 .one{
 
@@ -88,11 +96,12 @@ nav{
 .item-category{
 
 }
-.item{
-
+.section>.item{
+    border: 1px solid white;
 }
 .item-image{
-
+    width: 7rem;
+    height: 7rem;
 }
 .item-desc{
 
@@ -104,17 +113,25 @@ nav{
 
 }
 .item-count{
-
+    display: flex;
+    justify-content: right;
+    margin-left: 2rem;
 }
 .minus{
-
+    margin-right: .5rem;
 }
 .item-total{
 
 }
 .plus{
-
+    margin-left: .5rem;
+}
+.minus,.plus{
+    background: none;
+    border-style: none;
+    color: white;
 }
 .item-price{
-    
+    position: relative;
+    top: -6.2rem;
 }
