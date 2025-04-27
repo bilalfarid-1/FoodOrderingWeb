@@ -172,3 +172,14 @@ aside{
     padding: 0;
     height: 2rem;
 }
+
+#cart-section{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    position: relative;
+    top: -3rem;
+    width: 35vw;
+    left: 45rem;
+    padding: 0.1rem 1rem;
+}
