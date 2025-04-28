@@ -7,3 +7,28 @@ document.querySelector('.btn-cart').addEventListener('click', function() {
     }
 }
 );
+
+let updateCount;
+let foodItem = document.querySelectorAll(".item");
+
+foodItem.forEach(item =>{
+    let itemCount = item.querySelector(".item-total")
+    let itemIncrement = item.querySelector(".plus")
+    let itemDecrement = item.querySelector(".minus")
+
+    itemIncrement.addEventListener("click" , ()=>{
+        updateCount = Number(itemCount.textContent)
+        itemCount.textContent = updateCount + 1;
+    })
+    itemDecrement.addEventListener("click" , ()=>{
+        updateCount = Number(itemCount.textContent)
+        if(updateCount > 0){
+            itemCount.textContent = updateCount - 1
+        }
+        
+    })
+
+})
+
+// console.log(itemCount)
+
