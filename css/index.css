@@ -177,9 +177,43 @@ aside{
     display: flex;
     flex-direction: column;
     border: 1px solid white;
-    position: relative;
-    top: -3rem;
+    position: fixed;
+    top: 4rem;
     width: 35vw;
-    left: 45rem;
+    height: 75vh;
+    left: 14rem;
     padding: 0.1rem 1rem;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    background-color: rgb(212, 94, 94);
 }
+
+#cart-section .cart-item{
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    border: 1px solid white;
+    
+}
+.cart-item img{
+    padding: .5rem;
+    width: 5rem;
+    height: 5rem;
+    grid-area: 1 / 1 / 3 / 2;
+}
+.customize-cartItem{
+    display: flex;
+
+    grid-area: 2 / 2 / 3 / 3;
+}
+.customize-cartItem *{
+    background: none;
+    border: none;
+    
+}
+.price-cartItem{
+    grid-area: 2 / 3 / 2 / 4;
+    margin-left: auto;
+}
+
