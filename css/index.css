@@ -243,3 +243,61 @@ aside{
 button.btn-checkout {
     grid-area: 2 / 1 / 3 / 3;
 }
+
+/* customize cart section eg, toppings */
+.customize-item-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 2rem;
+    border: 1px solid white;
+}
+.img-section{
+
+}
+.img-section>img{
+    width: 100%;
+    height: auto;
+    border-radius: 1.5rem;
+    margin-top: 1rem;
+}
+.customize-section{
+
+}
+.customize-section>h2{
+
+}
+.customize-section>p{
+
+}
+.item-sizes{
+
+}
+.topping-heading{
+
+}
+.topping-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.toppings{
+    line-height: 1.4rem;
+}
+.checkbox{
+
+}
+.topping-price{
+    line-height: .4rem;
+}
+.price{
+
+}
+.item-sizes,.add-to-cart{
+    width: 100%;
+    height: 2rem;
+    border-radius: 1rem;
+}
+.add-to-cart{
+    
+}
