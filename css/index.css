@@ -143,20 +143,31 @@ aside{
 .plus{
     margin-left: .5rem;
 }
-.minus,.plus{
+.customize,.minus,.plus{
     background: none;
     border-style: none;
     color: white;
 }
 .item-price{
     position: relative;
-    top: -6.2rem;
+    top: -6.3rem;
+    color: rgb(112, 44, 99);
+    background-color: white;
+    border: 0;
+    padding: 0;
+    height: 1.5rem;
 }
 #sizes{
 
 }
 .btn-addToCart{
-
+    color: rgb(112, 44, 99);
+    background-color: white;
+    border-radius: 1rem;
+    border: 0;
+    padding: .2rem;
+    height: 2rem;
+    
 }
 
 #sizes option{
@@ -164,8 +175,7 @@ aside{
     color: black;
 }
 
-#sizes,.btn-addToCart{
-    
+#sizes{
     color: white;
     background: none;
     border: 0;
