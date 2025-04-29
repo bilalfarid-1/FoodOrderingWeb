@@ -23,6 +23,12 @@ nav{
     margin-top: .9rem;
     margin-left: 1.5rem;
 }
+#btn-back{
+    background: none;
+    border: none;
+    font-weight: bold;
+    margin-bottom: 2.3rem;
+}
 .logo{
     width: 6rem;
     height: 9rem;

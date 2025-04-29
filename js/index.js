@@ -32,5 +32,41 @@ foodItem.forEach(item =>{
 
 })
 
-// console.log(itemCount)
+
+let customizeSection = document.querySelector(".customize-item-container")
+let mainSection = document.querySelector("#main")
+let navbar = document.querySelector('.nav-bar');
+let navLeftChild = document.querySelector('.nav-bar .left');
+
+document.querySelectorAll(".item").forEach(items=>{
+    items.addEventListener('click',()=>{
+       
+        mainSection.style.display = 'none'
+        customizeSection.style.display = 'grid'
+
+        if(!document.querySelector("#btn-back")){
+            const backButton = document.createElement('button')
+            backButton.id = 'btn-back'
+            backButton.textContent = '←'
+            backButton.style.fontWeight = 'bold'
+            backButton.style.marginRight = '10px';
+            backButton.onclick = goBack;
+            navLeftChild.insertBefore(backButton, navLeftChild.firstChild);
+        }
+
+        function goBack() {
+            customizeSection.style.display = 'none';
+            mainSection.style.display = 'grid'; // or 'block'
+          
+            // Remove back button
+            const backButton = document.getElementById('btn-back');
+            if (backButton) {
+              backButton.remove();
+            }
+          }
+          
+    })
+})
+
+
 
