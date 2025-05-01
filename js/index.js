@@ -4,9 +4,6 @@ showCustomization()
 addToCart()
 
 
-
-
-
 function cartSectionToggle(){
     const cart = document.querySelector('#cart-section');
     cart.style.display = 'none';
@@ -19,8 +16,6 @@ function cartSectionToggle(){
         }
     });
 }
-
-
 
 function updateItemCount(){
     let updateCount;
@@ -37,7 +32,6 @@ function updateItemCount(){
         
     })
 }
-
 
 function itemIncrement(itemInc,count){
     let updateCount;
@@ -59,8 +53,6 @@ function itemDecrement(itemDec,count){
         
     })
 }
-
-
 
 function showCustomization(){
     let customizeSection = document.querySelector(".customize-item-container")
