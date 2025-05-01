@@ -2,6 +2,7 @@ cartSectionToggle()
 updateItemCount()
 showCustomization()
 addToCart()
+// getItemSize
 
 
 
@@ -12,7 +13,7 @@ function cartSectionToggle(){
     document.querySelector('.btn-cart').addEventListener('click', function() {
         
         if (cart.style.display === 'none' || cart.style.display === '') {
-            cart.style.display = 'block';
+            cart.style.display = 'flex';
         } else {
             cart.style.display = 'none';
         }
@@ -87,24 +88,76 @@ function showCustomization(){
 }
 
 function addToCart(){
-    const currentItem = document.querySelector('.item')
-    const btnCart = document.querySelector('.btn-addToCart')
+    const currentItem = document.querySelectorAll('.item')
+    const btnCart = document.querySelectorAll('.btn-addToCart')
 
-    // currentItem.forEach(item =>{
-        btnCart.addEventListener('click',()=>{
-            // const itemImage = item.querySelector('.item-image')
-            // const imageUrl = itemImage.getAttribute('src')
 
-            // const itemName = item.querySelector('.item-name')
-            alert('i got cart')
-            alert(imageUrl)
+    btnCart.forEach(button =>{
+        button.addEventListener('click',()=>{
+
+            const item = button.closest('.item');
+
+            //storing the current item values to display in cart section
+            const imageItem = item.querySelector('.item-image')
+            const imageUrl = imageItem.getAttribute('src')
+            const itemName = item.querySelector('.item-name').textContent
+            const itemDetail = item.querySelector('.item-detail').textContent
+            const itemSize = item.querySelector('#sizes').value;
+            const itemCount = item.querySelector('.item-total').textContent
+
+            //displaying the stored item values in cart section
+            let cartItem = document.querySelector('.cart-item')
+            let cartItemImage = document.querySelector('.img-cartItem')
+            let cartItemName = document.querySelector('.name-cartItem')
+            let cartItemSize = document.querySelector('.size-cartItem')
+            let cartItemCount = document.querySelector('.hhh')
+
+            cartItemImage.setAttribute('src',imageUrl)
+            cartItemName.textContent = itemName
+            cartItemSize.textContent = itemSize
+            cartItemCount.textContent = itemCount
             
-        })
+
+            alert('item added to cart')
+            const cart = document.querySelector('#cart-section');
+            cart.style.display = 'flex';
+            
+        })//end of event listener
+
+    })//end of 
+
+    
+    
+}//end of addToCart() function
 
 
-    // })
-}
 
+// document.querySelector('.item').addEventListener("click", ()=>{
+//     alert('i got clicked')
+//     const sizeSelector = document.getElementById('sizes');
+//     sizeSelector.addEventListener("change", ()=>{
+//          const selectedSize = sizeSelector.value;
+//          alert(selectedSize)
+//     })
+// });
 
+// function getItemSize(){
+    
+ 
+//  }
+// let listenerAdded = false;
+
+// document.querySelector('.item').addEventListener("click", () => {
+//     alert('i got clicked');
+
+//     if (!listenerAdded) {
+//         const sizeSelector = document.getElementById('sizes');
+//         sizeSelector.addEventListener("change", () => {
+//             const selectedSize = sizeSelector.value;
+//             alert('You selected: ' + selectedSize);
+//         });
+//         listenerAdded = true;
+//     }
+// });
 
 
