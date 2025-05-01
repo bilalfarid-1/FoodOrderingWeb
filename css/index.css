@@ -101,7 +101,7 @@ aside{
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: repeat(2,1fr);
-    gap: .5rem;
+    gap: 2rem 2rem;
     margin-right: 5rem;
     
 }
@@ -118,7 +118,7 @@ aside{
 
 }
 .section>.item{
-    border: 1px solid white;
+    /* border: 1px solid white; */
 }
 .item-image{
     width: 7rem;
@@ -136,9 +136,8 @@ aside{
 }
 .item-count{
     display: flex;
-    justify-content: right;
+    justify-content: left;
     align-items: baseline;
-    margin-left: 2rem;
 }
 .minus{
     margin-right: .5rem;
@@ -156,12 +155,13 @@ aside{
 }
 .item-price{
     position: relative;
-    top: -6.3rem;
+    top: -5.1rem;
     color: rgb(112, 44, 99);
     background-color: white;
     border: 0;
     padding: 0;
     height: 1.5rem;
+    right: 3rem;
 }
 #sizes{
 

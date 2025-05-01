@@ -2,7 +2,7 @@ cartSectionToggle()
 updateItemCount()
 showCustomization()
 addToCart()
-// getItemSize
+
 
 
 
@@ -28,24 +28,37 @@ function updateItemCount(){
 
     foodItem.forEach(item =>{
         let itemCount = item.querySelector(".item-total")
-        let itemIncrement = item.querySelector(".plus")
-        let itemDecrement = item.querySelector(".minus")
+        let itemInc = item.querySelector(".plus")
+        let itemDec = item.querySelector(".minus")
 
-        itemIncrement.addEventListener("click" , ()=>{
-            updateCount = Number(itemCount.textContent)
-            itemCount.textContent = updateCount + 1;
-        })
-        itemDecrement.addEventListener("click" , ()=>{
-            updateCount = Number(itemCount.textContent)
-            if(updateCount > 0){
-                itemCount.textContent = updateCount - 1
-            }
-            
-        })
+        itemIncrement(itemInc,itemCount)
 
+        itemDecrement(itemDec,itemCount)
+        
     })
 }
 
+
+function itemIncrement(itemInc,count){
+    let updateCount;
+    itemInc.addEventListener("click" , ()=>{
+        updateCount = Number(count.textContent)
+        if(updateCount >= 0){
+            count.textContent = updateCount + 1;
+        }
+        
+    })
+}
+
+function itemDecrement(itemDec,count){
+    itemDec.addEventListener("click" , ()=>{
+        updateCount = Number(count.textContent)
+        if(updateCount > 0){
+            count.textContent = updateCount - 1
+        }
+        
+    })
+}
 
 
 
@@ -110,7 +123,7 @@ function addToCart(){
             let cartItemImage = document.querySelector('.img-cartItem')
             let cartItemName = document.querySelector('.name-cartItem')
             let cartItemSize = document.querySelector('.size-cartItem')
-            let cartItemCount = document.querySelector('.hhh')
+            let cartItemCount = document.querySelector('.item-total')
 
             cartItemImage.setAttribute('src',imageUrl)
             cartItemName.textContent = itemName
@@ -129,35 +142,5 @@ function addToCart(){
     
     
 }//end of addToCart() function
-
-
-
-// document.querySelector('.item').addEventListener("click", ()=>{
-//     alert('i got clicked')
-//     const sizeSelector = document.getElementById('sizes');
-//     sizeSelector.addEventListener("change", ()=>{
-//          const selectedSize = sizeSelector.value;
-//          alert(selectedSize)
-//     })
-// });
-
-// function getItemSize(){
-    
- 
-//  }
-// let listenerAdded = false;
-
-// document.querySelector('.item').addEventListener("click", () => {
-//     alert('i got clicked');
-
-//     if (!listenerAdded) {
-//         const sizeSelector = document.getElementById('sizes');
-//         sizeSelector.addEventListener("change", () => {
-//             const selectedSize = sizeSelector.value;
-//             alert('You selected: ' + selectedSize);
-//         });
-//         listenerAdded = true;
-//     }
-// });
 
 
