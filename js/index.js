@@ -1,6 +1,7 @@
 cartSectionToggle()
 updateItemCount()
 showCustomization()
+addToCart()
 
 
 
@@ -50,11 +51,12 @@ function updateItemCount(){
 function showCustomization(){
     let customizeSection = document.querySelector(".customize-item-container")
     let mainSection = document.querySelector("#main")
+    let customizeBtn = document.querySelector('.customize')
     let navbar = document.querySelector('.nav-bar');
     let navLeftChild = document.querySelector('.nav-bar .left');
 
     document.querySelectorAll(".item").forEach(items=>{
-        items.addEventListener('click',()=>{
+        customizeBtn.addEventListener('click',()=>{
         
             mainSection.style.display = 'none'
             customizeSection.style.display = 'grid'
@@ -82,6 +84,25 @@ function showCustomization(){
             
         })
     })
+}
+
+function addToCart(){
+    const currentItem = document.querySelector('.item')
+    const btnCart = document.querySelector('.btn-addToCart')
+
+    // currentItem.forEach(item =>{
+        btnCart.addEventListener('click',()=>{
+            // const itemImage = item.querySelector('.item-image')
+            // const imageUrl = itemImage.getAttribute('src')
+
+            // const itemName = item.querySelector('.item-name')
+            alert('i got cart')
+            alert(imageUrl)
+            
+        })
+
+
+    // })
 }
 
 
