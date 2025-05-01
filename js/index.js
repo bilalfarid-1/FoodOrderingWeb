@@ -117,6 +117,7 @@ function addToCart(){
             const itemSize = item.querySelector('#sizes').value;
             const itemCount = item.querySelector('.item-total').textContent
 
+        
 
             // Clone the template cart item and make it visible
             let cloneItem = cartItemTemplate.cloneNode(true)
@@ -129,6 +130,17 @@ function addToCart(){
             let cartItemName = cloneItem.querySelector('.name-cartItem')
             let cartItemSize = cloneItem.querySelector('.size-cartItem')
             let cartItemCount = cloneItem.querySelector('.item-total')
+
+            
+            if(itemName === cartItemName){
+                if(itemSize === cartItemSize){
+                    //just increment previous counter
+                }else{
+                    //add as new item
+                }
+            }else{
+                //add as new item
+            }
 
             if(itemCount<=0){
                 alert('select the quantity of the' + itemName)
