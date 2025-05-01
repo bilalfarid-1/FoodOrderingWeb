@@ -191,7 +191,7 @@ aside{
 
 #cart-section{
     display: none;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     border: 1px solid white;
     position: fixed;
@@ -208,7 +208,8 @@ aside{
 }
 
 #cart-section .cart-item{
-    display: grid;
+    /* display: grid; */
+    display: none;
     grid-template-columns: 1fr 2fr 2fr;
     border: 1px solid white;
     

@@ -95,11 +95,18 @@ function showCustomization(){
 function addToCart(){
     const currentItem = document.querySelectorAll('.item')
     const btnCart = document.querySelectorAll('.btn-addToCart')
+    const cartItemsContainer = document.querySelector('.cart-items')
+    const cartItemTemplate = document.querySelector('.cart-item')
+    const cartSection = document.querySelector('#cart-section')
+
+    //Remove the cartItem template from the DOM, but keep it in memory to clone later
+    cartItemTemplate.remove()
 
 
     btnCart.forEach(button =>{
         button.addEventListener('click',()=>{
 
+            //Find the closest parent element with the class "item" for the clicked button
             const item = button.closest('.item');
 
             //storing the current item values to display in cart section
@@ -110,23 +117,41 @@ function addToCart(){
             const itemSize = item.querySelector('#sizes').value;
             const itemCount = item.querySelector('.item-total').textContent
 
-            //displaying the stored item values in cart section
-            let cartItem = document.querySelector('.cart-item')
-            let cartItemImage = document.querySelector('.img-cartItem')
-            let cartItemName = document.querySelector('.name-cartItem')
-            let cartItemSize = document.querySelector('.size-cartItem')
-            let cartItemCount = document.querySelector('.item-total')
 
-            cartItemImage.setAttribute('src',imageUrl)
-            cartItemName.textContent = itemName
-            cartItemSize.textContent = itemSize
-            cartItemCount.textContent = itemCount
+            // Clone the template cart item and make it visible
+            let cloneItem = cartItemTemplate.cloneNode(true)
+            cloneItem.style.display = 'grid'
+
+
+            //CHANGED: Instead of querying the document, we query inside the cloned item
+            let cartItem = cloneItem.querySelector('.cart-item')
+            let cartItemImage = cloneItem.querySelector('.img-cartItem')
+            let cartItemName = cloneItem.querySelector('.name-cartItem')
+            let cartItemSize = cloneItem.querySelector('.size-cartItem')
+            let cartItemCount = cloneItem.querySelector('.item-total')
+
+            if(itemCount<=0){
+                alert('select the quantity of the' + itemName)
+            }
+            else{
+                 //Filling in the cloned cart item with actual values
+                cartItemImage.setAttribute('src',imageUrl)
+                cartItemName.textContent = itemName
+                cartItemSize.textContent = itemSize
+                cartItemCount.textContent = itemCount
+
+                //Add the filled clone to the cart container
+                cartItemsContainer.appendChild(cloneItem);
+                alert('item added to cart')
+                cartSection.style.display = 'flex'
+            }
+
             
 
-            alert('item added to cart')
-            const cart = document.querySelector('#cart-section');
-            cart.style.display = 'flex';
             
+
+            
+             
         })//end of event listener
 
     })//end of 
