@@ -2,6 +2,7 @@ cartSectionToggle()
 updateItemCount()
 showCustomization()
 addToCart()
+// editCart()
 // calculateCartTotal()
 
 
@@ -150,12 +151,14 @@ function addToCart(){
                 itemAlreadyExits.querySelector('.price-cartItem').textContent = (Number(itemCount) + Number(existingItemCount)) * Number(itemPrice);
                 
                 alert('item count updated')
+                
 
             }
             else{
                 // Clone the template cart item and make it visible
                 let cloneItem = cartItemTemplate.cloneNode(true)
                 cloneItem.style.display = 'grid'
+                
 
                 
                 //CHANGED: Instead of querying the document, we query inside the cloned item
@@ -179,14 +182,17 @@ function addToCart(){
                 //Add the filled clone to the cart container
                 cartItemsContainer.appendChild(cloneItem);
                 alert('item added to cart')
-            
+                
+                
 
             }
             //show the cart section
             cartSection.style.display = 'flex'
 
             /////////////////////////////////
+            editCart()
             calculateCartTotal()
+
 
         })//end of event listener
 
@@ -195,18 +201,67 @@ function addToCart(){
 }//end of addToCart() function
 
 function editCart(){
+    // let itemCount;
+    // let cartItem = cloneCartItem.querySelectorAll('.cart-item');
+    // cartItem.forEach(item => {
+    //     let btnPlus = item.querySelector('.plus')
+    //     let btnMinus = item.querySelector('.minus')
+    //     let count = item.querySelector('.item-total')
+    //     let btnCustomize = item.querySelector('.customize')
+    //     let btnDelete = item.querySelector('.delete')
+
+
+
+    // })
+
+    // btnPlus.addEventListener('click', () => {
+    //     alert('i got clicked')
+    // })
+    // document.querySelector('.cart-item').addEventListener('click', () => {
+    //     console.log("cart div got clicked");
+    // });
+    //selecting all cart items
+    const cartItems = document.querySelectorAll('.cart-item');
+
+    //looping through each cart item
+    cartItems.forEach(cartItem =>{
+        let btnMinus = cartItem.querySelector('#minus')
+        let btnPlus = cartItem.querySelector('#plus')
+        let itemCount = cartItem.querySelector("#item-total")
+        let itemRemove = cartItem.querySelector('#delete')
+        itemRemove.addEventListener('click', ()=> {
+            cartItem.remove();
+            calculateCartTotal()
+        })
+
+        // btnMinus.addEventListener('click', ()=> {
+        //     itemCount.textContent = Number(itemCount.textContent) - 1;
+        //     calculateCartTotal()
+        // })
+
+
+        itemIncrement(btnPlus,itemCount)
+        itemDecrement(btnMinus,itemCount)
+        
+
+        })
+
+        // let itemCount = item.querySelector(".item-total")
+        // let itemInc = item.querySelector(".plus")
+        // let itemDec = item.querySelector(".minus")
+        // itemIncrement(itemInc,itemCount)
+
+        // itemDecrement(itemDec,itemCount)
 
 }
 
-//function calculate20Percent(number) {
-    //return number * 0.2;
-// }
+
 
 function calculateCartTotal(){
     let totalPrice = 0
     let subTotal = null
     let salesTax = null
-    let deliveryCharges = 150
+    let deliveryCharges = 0;
     let totalBill = null
     //bill container
     const totalSection =  document.querySelector('#cart-total')
@@ -231,7 +286,7 @@ function calculateCartTotal(){
     salesTax = 0.05 * subTotal
     salesTaxContainer.textContent = salesTax
     //deliveryCharges = 150
-    deliveryChargesContainer.textContent = deliveryCharges
+    deliveryChargesContainer.textContent = 150
     //totalBill = subTotal + salesTax + deliveryCharges;
     totalBill = subTotal + salesTax + deliveryCharges
     totalBillContainer.textContent = totalBill
