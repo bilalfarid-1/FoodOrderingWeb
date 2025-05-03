@@ -2,6 +2,7 @@ cartSectionToggle()
 updateItemCount()
 showCustomization()
 addToCart()
+// calculateCartTotal()
 
 
 function cartSectionToggle(){
@@ -98,6 +99,7 @@ function addToCart(){
     const cartItemsContainer = document.querySelector('.cart-items')
     const cartItemTemplate = document.querySelector('.cart-item')
     const cartSection = document.querySelector('#cart-section')
+    let total = null;
     
 
     //Remove the cartItem template from the DOM, but keep it in memory to clone later
@@ -117,13 +119,16 @@ function addToCart(){
             const itemDetail = item.querySelector('.item-detail').textContent
             const itemSize = item.querySelector('#sizes').value;
             const itemCount = item.querySelector('.item-total').textContent
-
+            let itemPrice = item.querySelector('.item-price').textContent
+            total = parseInt(itemPrice) * parseInt(itemCount)
+            
         
             //must select item count in order to add to cart
             if(itemCount<=0){
                 alert('select the quantity of the' + itemName)
                 return
             }
+
             //check if item is already in cart
             let itemAlreadyExits = null;
 
@@ -141,6 +146,9 @@ function addToCart(){
                 //update the quantity of the existing item
                 let existingItemCount = Number(itemAlreadyExits.querySelector('.item-total').textContent)
                 itemAlreadyExits.querySelector('.item-total').textContent = Number(itemCount) + existingItemCount;
+                
+                itemAlreadyExits.querySelector('.price-cartItem').textContent = (Number(itemCount) + Number(existingItemCount)) * Number(itemPrice);
+                
                 alert('item count updated')
 
             }
@@ -149,13 +157,14 @@ function addToCart(){
                 let cloneItem = cartItemTemplate.cloneNode(true)
                 cloneItem.style.display = 'grid'
 
-
+                
                 //CHANGED: Instead of querying the document, we query inside the cloned item
                 let cartItem = cloneItem.querySelector('.cart-item')
                 let cartItemImage = cloneItem.querySelector('.img-cartItem')
                 let cartItemName = cloneItem.querySelector('.name-cartItem')
                 let cartItemSize = cloneItem.querySelector('.size-cartItem')
                 let cartItemCount = cloneItem.querySelector('.item-total')
+                let cartItemPrice = cloneItem.querySelector('.price-cartItem')
 
                 
                 
@@ -164,6 +173,7 @@ function addToCart(){
                 cartItemName.textContent = itemName
                 cartItemSize.textContent = itemSize
                 cartItemCount.textContent = itemCount
+                cartItemPrice.textContent = total
 
 
                 //Add the filled clone to the cart container
@@ -175,10 +185,56 @@ function addToCart(){
             //show the cart section
             cartSection.style.display = 'flex'
 
+            /////////////////////////////////
+            calculateCartTotal()
+
         })//end of event listener
 
     })//end of 
 
 }//end of addToCart() function
 
+function editCart(){
 
+}
+
+//function calculate20Percent(number) {
+    //return number * 0.2;
+// }
+
+function calculateCartTotal(){
+    let totalPrice = 0
+    let subTotal = null
+    let salesTax = null
+    let deliveryCharges = 150
+    let totalBill = null
+    //bill container
+    const totalSection =  document.querySelector('#cart-total')
+    //bill items container
+    let SubtotalContainer = totalSection.querySelector('.sub-total')
+    let salesTaxContainer = totalSection.querySelector('.sales-tax')
+    let deliveryChargesContainer = totalSection.querySelector('.deliver-charges')
+    let totalBillContainer = totalSection.querySelector('.total-bill')
+
+    //selecting all cart items
+    const cartItems = document.querySelectorAll('.cart-item');
+
+    //looping through each cart item
+    cartItems.forEach(cartItem =>{
+        let itemPrice = cartItem.querySelector('.price-cartItem').textContent
+        totalPrice += Number(itemPrice)
+        })
+    //subTotal
+    subTotal = totalPrice
+    SubtotalContainer.textContent = subTotal
+    //salesTax = 5%(subTotal)
+    salesTax = 0.05 * subTotal
+    salesTaxContainer.textContent = salesTax
+    //deliveryCharges = 150
+    deliveryChargesContainer.textContent = deliveryCharges
+    //totalBill = subTotal + salesTax + deliveryCharges;
+    totalBill = subTotal + salesTax + deliveryCharges
+    totalBillContainer.textContent = totalBill
+
+
+}
