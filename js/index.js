@@ -192,6 +192,7 @@ function addToCart(){
             /////////////////////////////////
             editCart()
             calculateCartTotal()
+            // editCart()
 
 
         })//end of event listener
@@ -234,14 +235,18 @@ function editCart(){
             calculateCartTotal()
         })
 
-        // btnMinus.addEventListener('click', ()=> {
-        //     itemCount.textContent = Number(itemCount.textContent) - 1;
-        //     calculateCartTotal()
-        // })
-
-
-        itemIncrement(btnPlus,itemCount)
-        itemDecrement(btnMinus,itemCount)
+        
+        btnMinus.addEventListener('click', ()=> {
+            itemDecrement(btnMinus,itemCount)
+            calculateCartTotal()
+        })
+        btnPlus.addEventListener('click', ()=> {
+            itemIncrement(btnPlus,itemCount)
+            calculateCartTotal()
+        })
+    //    
+        
+        
         
 
         })
@@ -277,6 +282,7 @@ function calculateCartTotal(){
     //looping through each cart item
     cartItems.forEach(cartItem =>{
         let itemPrice = cartItem.querySelector('.price-cartItem').textContent
+        let itemCount = cartItem.querySelector('#item-total').textContent
         totalPrice += Number(itemPrice)
         })
     //subTotal
