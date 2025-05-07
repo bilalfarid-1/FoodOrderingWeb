@@ -287,7 +287,7 @@ function calculateCartTotal(){
     let totalPrice = 0;
     let subTotal = 0;
     let salesTax = 0;
-    let deliveryCharges = 150;
+    let deliveryCharges = 0;
     let totalBill = 0;
     
     //bill container
@@ -314,8 +314,15 @@ function calculateCartTotal(){
     salesTax = 0.05 * subTotal;
     salesTaxContainer.textContent = salesTax;
     //deliveryCharges = 150
+    if(subTotal > 0){
+        deliveryCharges = 150;
+    }
+    else{
+        deliveryCharges = 0;
+    }
     deliveryChargesContainer.textContent = deliveryCharges;
     //totalBill = subTotal + salesTax + deliveryCharges;
+    // alert('delivery: ' + deliveryChargesContainer.textContent)
     totalBill = subTotal + salesTax + deliveryCharges;
     totalBillContainer.textContent = totalBill;
 }
