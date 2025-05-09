@@ -35,6 +35,8 @@
                 <div class="item-detail">
                     <p class="name-cartItem"></p>
                     <p class="size-cartItem"></p>
+                    <p class="topping-cartItem"></p>
+                    <p class="topings-cartItem"></p>
                 </div>
                 <div class="customize-cartItem">
                     <button id="minus" class="btn-cartCustomize btnn minus">-</button>
@@ -93,9 +95,9 @@
                         <p class="item-detail">salt+pepper</p>
                         <div class="item-count">
                             <select name="" id="sizes">
-                                <option value="small">small</option>
-                                <option value="medium">medium</option>
-                                <option value="large">large</option>
+                                <option value="small">Small</option>
+                                <option value="medium">Medium</option>
+                                <option value="large">Large</option>
                             </select>
                             <button class="customize">✎</button>
                             <button class="minus">-</button>
@@ -596,33 +598,33 @@
 
     <div class="customize-item-container" style="display: none;">
         <div class="img-section">
-            <img src="./images/pizza.jpg" alt="">
+            <img class="pic" src="./images/pizza.jpg" alt="">
         </div>
         <div class="customize-section">
-            <h2 class="">Veg Pizza</h2>
+            <h2 class="name">Veg Pizza</h2>
             <p>Select Your Size</p>
             <select class="item-sizes" name="" id="">
-                <option value="">Regular - Rs800</option>
-                <option value="">Medium - Rs1000</option>
-                <option value="">Large - Rs1200</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
             </select>
             <h4 class="topping-heading">Toppings-Veggies</h4>
             <div class="topping-section">
                 <div class="toppings">
-                    <input type="checkbox" class="topping" name="" value="">
+                    <input type="checkbox" class="topping" name="" value="Olives">
                     <label for="checkbox">Olives</label><br>
-                    <input type="checkbox" class="topping" name="" value="">
+                    <input type="checkbox" class="topping" name="" value="Broccoli">
                     <label for="checkbox">Broccoli</label><br>
-                    <input type="checkbox" class="topping" name="" value="">
+                    <input type="checkbox" class="topping" name="" value="Cheese">
                     <label for="checkbox">Cheese</label><br>
-                    <input type="checkbox" class="topping" name="" value="">
-                    <label for="checkbox">Fresh Mushrooms</label><br>
+                    <input type="checkbox" class="topping" name="" value="Mushrooms">
+                    <label for="checkbox">Mushrooms</label><br>
                 </div>
                 <div class="topping-price">
-                    <p class="price">Rs50</p>
-                    <p class="price">Rs50</p>
-                    <p class="price">Rs50</p>
-                    <p class="price">Rs50</p>
+                    <p class="price">50</p>
+                    <p class="price">50</p>
+                    <p class="price">50</p>
+                    <p class="price">50</p>
                 </div>
             </div>
             <button class="add-to-cart">Add To Cart</button>

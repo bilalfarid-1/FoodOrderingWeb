@@ -1,6 +1,6 @@
 cartSectionToggle()
 updateItemCount()
-showCustomization()
+customizeItems()
 addToCart()
 // editCart()
 // calculateCartTotal()
@@ -56,14 +56,50 @@ function itemDecrement(itemDec,count){
     })
 }
 
-function showCustomization(){
+function showCustomization(item){
     let customizeSection = document.querySelector(".customize-item-container")
     let mainSection = document.querySelector("#main")
-    let customizeBtn = document.querySelector('.customize')
+    let customizeBtn = item.querySelector('.customize')
     let navbar = document.querySelector('.nav-bar');
     let navLeftChild = document.querySelector('.nav-bar .left');
 
-    document.querySelectorAll(".item").forEach(items=>{
+    //selecting current item elements information
+    //itemName, item sizes, item picture
+    itemName = item.querySelector('.item-name').textContent;
+    itemPictureUrl = item.querySelector('.item-image').getAttribute('src');
+    itemPrice = item.querySelector('.item-price').textContent
+    itemCount = item.querySelector('.item-total').textContent
+
+    //selecting customize section elements
+    let customizePicture = customizeSection.querySelector('.pic');
+    customizePicture.setAttribute('src', itemPictureUrl);
+    let customizeItemName = customizeSection.querySelector('.name');
+    customizeItemName.textContent = itemName;
+    let customizeItemSize = customizeSection.querySelector('.item-sizes').value
+    let toppingContainer = customizeSection.querySelector('.toppings')
+    let topping = customizeSection.querySelectorAll('input[type="checkbox"]')
+    let toppings = [];
+    let topingUnitPrice = 50;
+    let totalToppingsPrice = null;
+
+    //getting selected topping for each item
+    topping.forEach(topping => {
+        topping.addEventListener('change', ()=> {
+            if(topping.checked){
+                toppings.push(topping.value);
+            }
+        })
+    })
+    
+    customizeSection.querySelector('.add-to-cart').addEventListener('click', ()=> {
+        
+    })
+
+    //for cart i need pic, name , size(from customize item), count, price(from actual item)
+
+
+
+    // document.querySelectorAll(".item").forEach(items=>{
         customizeBtn.addEventListener('click',()=>{
         
             mainSection.style.display = 'none'
@@ -91,7 +127,7 @@ function showCustomization(){
             }
             
         })
-    })
+    // })
 }
 
 function addToCart(){
@@ -202,26 +238,7 @@ function addToCart(){
 }//end of addToCart() function
 
 function editCart(){
-    // let itemCount;
-    // let cartItem = cloneCartItem.querySelectorAll('.cart-item');
-    // cartItem.forEach(item => {
-    //     let btnPlus = item.querySelector('.plus')
-    //     let btnMinus = item.querySelector('.minus')
-    //     let count = item.querySelector('.item-total')
-    //     let btnCustomize = item.querySelector('.customize')
-    //     let btnDelete = item.querySelector('.delete')
-
-
-
-    // })
-
-    // btnPlus.addEventListener('click', () => {
-    //     alert('i got clicked')
-    // })
-    // document.querySelector('.cart-item').addEventListener('click', () => {
-    //     console.log("cart div got clicked");
-    // });
-    //selecting all cart items
+    
     const cartItems = document.querySelectorAll('.cart-item');
 
     //looping through each cart item
@@ -265,12 +282,6 @@ function editCart(){
 
         })
 
-        // let itemCount = item.querySelector(".item-total")
-        // let itemInc = item.querySelector(".plus")
-        // let itemDec = item.querySelector(".minus")
-        // itemIncrement(itemInc,itemCount)
-
-        // itemDecrement(itemDec,itemCount)
 
 }
 
@@ -325,4 +336,14 @@ function calculateCartTotal(){
     // alert('delivery: ' + deliveryChargesContainer.textContent)
     totalBill = subTotal + salesTax + deliveryCharges;
     totalBillContainer.textContent = totalBill;
+}
+
+function customizeItems(){
+    let items = document.querySelectorAll(".item");
+    items.forEach(item => {
+        item.addEventListener('click', ()=> {
+            // alert('customization item clicked')
+            showCustomization(item);
+        })
+    })
 }
